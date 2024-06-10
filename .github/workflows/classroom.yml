@@ -1,0 +1,182 @@
+name: Autograding Tests
+'on':
+  - push
+  - workflow_dispatch
+  - repository_dispatch
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: test_mocked_stock_data_analyzer test_calculate_average_price
+      id: test_mocked_stock_data_analyzer-test_calculate_average_price
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_stock_data_analyzer test_calculate_average_price
+        setup-command: ''
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_stock_data_analyzer.py
+          -k test_calculate_average_price
+        timeout: 10
+        max-score: 7
+    - name: Test calculate_average_price with real data
+      id: test_real_stock_data_analyzer-test_calculate_average_price
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_stock_data_analyzer test_calculate_average_price
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_stock_data_analyzer.py -k test_calculate_average_price
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_max_price with mocked data
+      id: test_mocked_stock_data_analyzer-test_calculate_max_price
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_stock_data_analyzer test_calculate_max_price
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_stock_data_analyzer.py -k test_calculate_max_price
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_max_price with real data
+      id: test_real_stock_data_analyzer-test_calculate_max_price
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_stock_data_analyzer test_calculate_max_price
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_stock_data_analyzer.py -k test_calculate_max_price
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_min_price with real data
+      id: test_real_stock_data_analyzer-test_calculate_min_price
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_stock_data_analyzer test_calculate_min_price
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_stock_data_analyzer.py -k test_calculate_min_price
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_min_price with mocked data
+      id: test_mocked_stock_data_analyzer-test_calculate_min_price
+      uses: classroom-resources/aut
+        -name: Test calculate_min_price with mocked data
+      id: test_mocked_stock_data_analyzer-test_calculate_min_price
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_stock_data_analyzer test_calculate_min_price
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_stock_data_analyzer.py -k test_calculate_min_price
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_volume with real data
+      id: test_real_stock_data_analyzer-test_calculate_volume
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_stock_data_analyzer test_calculate_volume
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_stock_data_analyzer.py -k test_calculate_volume
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_volume with mocked data
+      id: test_mocked_stock_data_analyzer-test_calculate_volume
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_stock_data_analyzer test_calculate_volume
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_stock_data_analyzer.py -k test_calculate_volume
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_price_change with mocked data
+      id: test_mocked_stock_data_analyzer-test_calculate_price_change
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_stock_data_analyzer test_calculate_price_change
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_stock_data_analyzer.py -k test_calculate_price_change
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_price_change with real data
+      id: test_real_stock_data_analyzer-test_calculate_price_change
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_stock_data_analyzer test_calculate_price_change
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_stock_data_analyzer.py -k test_calculate_price_change
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_price_change_percentage with mocked data
+      id: test_mocked_stock_data_analyzer-test_calculate_price_change_percentage
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_stock_data_analyzer test_calculate_price_change_percentage
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_stock_data_analyzer.py -k test_calculate_price_change_percentage
+        timeout: 10
+        max-score: 7
+
+    - name: Test calculate_price_change_percentage with real data
+      id: test_real_stock_data_analyzer-test_calculate_price_change_percentage
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_stock_data_analyzer test_calculate_price_change_percentage
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_stock_data_analyzer.py -k test_calculate_price_change_percentage
+        timeout: 10
+        max-score: 7
+
+    - name: Test mocked company info fetcher
+      id: test_mocked_company_info_fetcher
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_mocked_company_info_fetcher
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_mocked_company_info_fetcher.py
+        timeout: 10
+        max-score: 8
+
+    - name: Test real company info fetcher
+      id: test_real_company_info_fetcher
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: test_real_company_info_fetcher
+        command: PYTHONPATH=$PYTHONPATH:pwd python -m unittest do_not_modify/test_real_company_info_fetcher.py
+        timeout: 10
+        max-score: 8
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST_MOCKED_STOCK_DATA_ANALYZER-TEST_CALCULATE_AVERAGE_PRICE_RESULTS: "${{steps.test_mocked_stock_data_analyzer-test_calculate_average_price.outputs.result}}"
+        TEST_REAL_STOCK_DATA_ANALYZER-TEST_CALCULATE_AVERAGE_PRICE_RESULTS: "${{steps.test_real_stock_data_analyzer-test_calculate_average_price.outputs.result}}"
+        TEST_MOCKED_STOCK_DATA_ANALYZER-TEST_CALCULATE_MAX_PRICE_RESULTS: "${{steps.test_mocked_stock_data_analyzer-test_calculate_max_price.outputs.result}}"
+        TEST_REAL_STOCK_DATA_ANALYZER-TEST_CALCULATE_MAX_PRICE_RESULTS: "${{steps.test_real_stock_data_analyzer-test_calculate_max_price.outputs.result}}"
+        TEST_REAL_STOCK_DATA_ANALYZER-TEST_CALCULATE_MIN_PRICE_RESULTS: "${{steps.test_real_stock_data_analyzer-test_calculate_min_price.outputs.result}}"
+        TEST_MOCKED_STOCK_DATA_ANALYZER-TEST_CALCULATE_MIN_PRICE_RESULTS: "${{steps.test_mocked_stock_data_analyzer-test_calculate_min_price.outputs.result}}"
+        TEST_REAL_STOCK_DATA_ANALYZER-TEST_CALCULATE_VOLUME_RESULTS: "${{steps.test_real_stock_data_analyzer-test_calculate_volume.outputs.result}}"
+        TEST_MOCKED_STOCK_DATA_ANALYZER-TEST_CALCULATE_VOLUME_RESULTS: "${{steps.test_mocked_stock_data_analyzer-test_calculate_volume.outputs.result}}"
+        TEST_MOCKED_STOCK_DATA_ANALYZER-TEST_CALCULATE_PRICE_CHANGE_RESULTS: "${{steps.test_mocked_stock_data_analyzer-test_calculate_price_change.outputs.result}}"
+        TEST_REAL_STOCK_DATA_ANALYZER-TEST_CALCULATE_PRICE_CHANGE_RESULTS: "${{steps.test_real_stock_data_analyzer-test_calculate_price_change.outputs.result}}"
+        TEST_MOCKED_STOCK_DATA_ANALYZER-TEST_CALCULATE_PRICE_CHANGE_PERCENTAGE_RESULTS: "${{steps.test_mocked_stock_data_analyzer-test_calculate_price_change_percentage.outputs.result}}"
+        TEST_REAL_STOCK_DATA_ANALYZER-TEST_CALCULATE_PRICE_CHANGE_PERCENTAGE_RESULTS: "${{steps.test_real_stock_data_analyzer-test_calculate_price_change_percentage.outputs.result}}"
+        TEST_MOCKED_COMPANY_INFO_FETCHER_RESULTS: "${{steps.test_mocked_company_info_fetcher.outputs.result}}"
+        TEST_REAL_COMPANY_INFO_FETCHER_RESULTS: "${{steps.test_real_company_info_fetcher.outputs.result}}"
+      with:
+        runners: |
+          test_mocked_stock_data_analyzer-test_calculate_average_price
+          test_real_stock_data_analyzer-test_calculate_average_price
+          test_mocked_stock_data_analyzer-test_calculate_max_price
+          test_real_stock_data_analyzer-test_calculate_max_price
+          test_real_stock_data_analyzer-test_calculate_min_price
+          test_mocked_stock_data_analyzer-test_calculate_min_price
+          test_real_stock_data_analyzer-test_calculate_volume
+          test_mocked_stock_data_analyzer-test_calculate_volume
+          test_mocked_stock_data_analyzer-test_calculate_price_change
+          test_real_stock_data_analyzer-test_calculate_price_change
+          test_mocked_stock_data_analyzer-test_calculate_price_change_percentage
+          test_real_stock_data_analyzer-test_calculate_price_change_percentage
+          test_mocked_company_info_fetcher
+          test_real_company_info_fetcher
