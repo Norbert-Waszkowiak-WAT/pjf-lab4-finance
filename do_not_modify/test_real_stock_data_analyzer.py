@@ -9,7 +9,7 @@ class TestRealStockDataAnalyzer(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        sleep(5)
+        sleep(15)
         cls.analyzer = StockDataAnalyzer(keys.api_key, 'AAPL', '2024-01-01', '2024-05-31')
 
     def test_calculate_average_price(self):
