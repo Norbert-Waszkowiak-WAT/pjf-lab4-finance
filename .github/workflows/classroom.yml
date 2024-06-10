@@ -162,18 +162,4 @@ jobs:
         TEST_MOCKED_COMPANY_INFO_FETCHER_RESULTS: "${{steps.test_mocked_company_info_fetcher.outputs.result}}"
         TEST_REAL_COMPANY_INFO_FETCHER_RESULTS: "${{steps.test_real_company_info_fetcher.outputs.result}}"
       with:
-        runners: |
-          test_mocked_stock_data_analyzer-test_calculate_average_price
-          test_real_stock_data_analyzer-test_calculate_average_price
-          test_mocked_stock_data_analyzer-test_calculate_max_price
-          test_real_stock_data_analyzer-test_calculate_max_price
-          test_real_stock_data_analyzer-test_calculate_min_price
-          test_mocked_stock_data_analyzer-test_calculate_min_price
-          test_real_stock_data_analyzer-test_calculate_volume
-          test_mocked_stock_data_analyzer-test_calculate_volume
-          test_mocked_stock_data_analyzer-test_calculate_price_change
-          test_real_stock_data_analyzer-test_calculate_price_change
-          test_mocked_stock_data_analyzer-test_calculate_price_change_percentage
-          test_real_stock_data_analyzer-test_calculate_price_change_percentage
-          test_mocked_company_info_fetcher
-          test_real_company_info_fetcher
+        runners: test_mocked_stock_data_analyzer-test_calculate_average_price, test_real_stock_data_analyzer-test_calculate_average_price, test_mocked_stock_data_analyzer-test_calculate_max_price, test_real_stock_data_analyzer-test_calculate_max_price, test_real_stock_data_analyzer-test_calculate_min_price, test_mocked_stock_data_analyzer-test_calculate_min_price, test_real_stock_data_analyzer-test_calculate_volume, test_mocked_stock_data_analyzer-test_calculate_volume, test_mocked_stock_data_analyzer-test_calculate_price_change, test_real_stock_data_analyzer-test_calculate_price_change, test_mocked_stock_data_analyzer-test_calculate_price_change_percentage, test_real_stock_data_analyzer-test_calculate_price_change_percentage, test_mocked_company_info_fetcher, test_real_company_info_fetcher
