@@ -65,9 +65,6 @@ jobs:
 
     - name: Test calculate_min_price with mocked data
       id: test_mocked_stock_data_analyzer-test_calculate_min_price
-      uses: classroom-resources/aut
-        -name: Test calculate_min_price with mocked data
-      id: test_mocked_stock_data_analyzer-test_calculate_min_price
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: test_mocked_stock_data_analyzer test_calculate_min_price
