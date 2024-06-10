@@ -8,7 +8,7 @@ from company_info_fetcher import CompanyInfoFetcher
 class TestCompanyInfoFetcher(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        sleep(5)
+        sleep(15)
         cls.fetcher = CompanyInfoFetcher(keys.api_key, 'AAPL')
 
     def test_get_company_name(self):
