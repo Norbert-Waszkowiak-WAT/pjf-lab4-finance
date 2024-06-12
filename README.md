@@ -94,7 +94,7 @@ Uzupełnij impelmentacje klas `StockDataAnalyzer`(`stock_data_analyzer.py`) oraz
 danych o spółkach giełdowych.
 
 ### Użyj endpointów API udestępnionych przez `polygon.io`:
-- [Tickers](https://polygon.io/docs/stocks/get_v3_reference_ticker)
+- [Tickers]([https://polygon.io/docs/stocks/get_v3_reference_ticker](https://polygon.io/docs/stocks/get_v3_reference_tickers))
 - [Ticker Details](https://polygon.io/docs/stocks/get_v3_reference_tickers__ticker)
 
 ### Klucz API:
